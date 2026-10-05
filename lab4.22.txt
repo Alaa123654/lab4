@@ -1,0 +1,57 @@
+male(ali). 
+male(ahmad).
+male(faisal). 
+male(hassan).
+male(muhammad).
+male(khan).
+
+female(sara). 
+female(nora).
+
+parent(ali, ahmad).
+parent(ali, muhammad).
+parent(ahmad, sara).
+parent(ahmad, nora).
+parent(ahmad, khan).
+parent(muhammad, faisal).
+parent(faisal, hassan).
+
+
+
+
+
+33 ?- consult(['D:/aluoa/Documents/family.pl']).
+true.
+
+34 ?- female(Who).
+Who = sara 
+Unknown action: C (h for help)
+Action? .
+
+35 ?- female(Who).
+Who = sara ;
+Who = nora.
+
+35 ?- male(Who).
+Who = ali ;
+Who = ahmad ;
+Who = faisal ;
+Who = hassan ;
+Who = muhammad ;
+Who = khan.
+
+36 ?- parent(G, P), parent(P, faisal).
+G = ali,
+P = muhammad ;
+false.
+
+37 ?- parent(ahmad, X), female(X).
+X = sara ;
+X = nora ;
+false.
+
+38 ?- parent(P, ahmad), parent(P, muhammad).
+P = ali.
+
+39 ?- parent(P, khan), parent(P, nora), male(khan).
+P = ahmad.
